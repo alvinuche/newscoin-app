@@ -1,0 +1,44 @@
+.nav {
+	background-color: #7868e6;
+	color: #fff;
+}
+.span {
+	color: rgb(247, 147, 26);
+}
+
+.container {
+	padding: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 100%;
+	margin: 0 auto;
+}
+.item {
+	margin: 0 0.2rem 0 0;
+}
+.country_code {
+	margin: 0 0 0 0.2rem;
+}
+
+.title {
+	font-size: 1.3rem;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.wrapper_btc {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 1rem;
+}
+
+@media screen and (min-width: 48em) {
+	.container {
+		max-width: 90%;
+	}
+}

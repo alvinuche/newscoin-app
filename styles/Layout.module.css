@@ -1,0 +1,26 @@
+.container {
+	min-height: 100vh;
+	padding: 0 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #b8b5ff;
+	color: #1b2021;
+}
+
+.main {
+	padding: 2rem 1rem;
+	max-width: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+@media screen and (min-width: 48em) {
+	.main {
+		max-width: 90%;
+	}
+}
