@@ -1,9 +1,10 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "../../../styles/Article.module.css";
 
 export const getStaticPaths = async () => {
 	const res = await fetch(
-		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=50&page_size=10&media=True`,
+		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=50&page_size=12&media=True`,
 		{
 			method: "GET",
 			headers: {
@@ -22,13 +23,13 @@ export const getStaticPaths = async () => {
 
 	return {
 		paths,
-		fallback: false,
+		fallback: true,
 	};
 };
 
 export const getStaticProps = async ({ params }) => {
 	const res = await fetch(
-		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=50&page_size=10&media=True`,
+		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=50&page_size=12&media=True`,
 		{
 			method: "GET",
 			headers: {
@@ -46,12 +47,23 @@ export const getStaticProps = async ({ params }) => {
 		props: {
 			data,
 		},
+		revalidate: 3,
 	};
 };
 
 const article = ({
 	data: { _id, title, author, published_date, summary, link },
 }) => {
+	const router = useRouter();
+
+	if (router.isFallback) {
+		return (
+			<div>
+				<h2>Loading</h2>
+			</div>
+		);
+	}
+
 	return (
 		<div key={_id} className={styles.article_container}>
 			<h1>{title}</h1>
@@ -74,7 +86,7 @@ const article = ({
 					Visit Page
 				</a>
 				<Link href="/">
-					<a className={styles.visit_page}>Home</a>
+					<a className={styles.visit_page + " " + styles.home_btn}>Home</a>
 				</Link>
 			</div>
 		</div>

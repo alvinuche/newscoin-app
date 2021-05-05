@@ -7,7 +7,7 @@ export const getStaticProps = async () => {
 	};
 
 	const res = await fetch(
-		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=50&page_size=10&media=True`,
+		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=50&page_size=12&media=True`,
 		{
 			method: "GET",
 			headers: {
@@ -23,7 +23,7 @@ export const getStaticProps = async () => {
 		props: {
 			data,
 		},
-		revalidate: 10,
+		revalidate: 3,
 	};
 };
 
