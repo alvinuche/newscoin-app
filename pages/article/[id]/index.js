@@ -4,7 +4,7 @@ import styles from "../../../styles/Article.module.css";
 
 export const getStaticPaths = async () => {
 	const res = await fetch(
-		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=50&page_size=12&media=True`,
+		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=2&page_size=12&media=True`,
 		{
 			method: "GET",
 			headers: {
@@ -29,7 +29,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
 	const res = await fetch(
-		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=50&page_size=12&media=True`,
+		`https://newscatcher.p.rapidapi.com/v1/search_free?q=cryptocurrency&lang=en&page=2&page_size=12&media=True`,
 		{
 			method: "GET",
 			headers: {
